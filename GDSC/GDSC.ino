@@ -13,7 +13,7 @@ Servo motor_2;
 #define enB 5  //Enable2 L298 Pin enB 
 
 // init Class:
-BluetoothSerial ESP_BT; 
+BluetoothSerial ESP_GDSC; 
 
 // Parameters for Bluetooth interface
 int bt_data;
@@ -60,8 +60,7 @@ void loop() {
     else if(bt_data == 4){turnRight();} // if the bt_data is '4' the motor will turn right
     else if(bt_data == 5){Stop(); }     // if the bt_data '5' the motor will Stop
     
-    else if(bt_data == 6){turnLeft();  delay(400);  bt_data = 5;}
-    else if(bt_data == 7){turnRight(); delay(400);  bt_data = 5;}   
+      
     
     else if (bt_data == 8){
     if(servo1<180){servo1 = servo1+1;}
@@ -72,14 +71,16 @@ void loop() {
     motor_1.write(servo1);  
     }
     
-    else if (bt_data == 10){
-    if(servo2>0){servo2 = servo2-1;}
-    motor_2.write(servo2);
-    }
-    else if (bt_data == 11){
+     else if (bt_data == 10){
     if(servo2<90){servo2 = servo2+1;}
     motor_2.write(servo2);  
     }
+    
+    else if (bt_data == 11){
+    if(servo2>0){servo2 = servo2-1;}
+    motor_2.write(servo2);
+    }
+   
        
   }
   delay(30);
