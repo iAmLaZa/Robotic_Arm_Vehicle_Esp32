@@ -22,7 +22,7 @@ int Speed = 130;
 void setup(){
   
 Serial.begin(9600); // initialize serial communication at 9600 bits per second:
-ESP_BT.begin("ESP32_GDSC"); //Name of your Bluetooth interface -> will show up on your phone
+ESP_GDSC.begin("ESP32_GDSC"); //Name of your Bluetooth interface -> will show up on your phone
 
 int servo1 = 90;
 int servo2 = 110;
